@@ -1,0 +1,36 @@
+.ListItem {
+    margin: 5px;
+    width: 100%;
+    border-bottom: solid 1px #d5d5d5;
+}
+
+.ListItemText {
+    margin: 0 20px;
+}
+
+.Paper {
+    padding: 30px;
+    margin: 20px;
+}
+
+.sendButton {
+  justify-content: flex-end;
+  align-items: flex-end
+}
+.CommentTextArea {
+    font-size: 16px;
+    font-weight: 100;
+
+    margin: 50px 20px 15px;
+    padding: 10px;
+    width: 95%;
+    height: 10vh;
+    border-radius: 3px;
+}
+.sendButtonIcon {
+    color: #4dabf5;
+}
+
+.Posts .mainContainer {
+    padding: 20px;
+}

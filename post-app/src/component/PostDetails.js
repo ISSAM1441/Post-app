@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './Details.css'
 
 import {
   Typography,
   Grid,
-  Divider,
   Stack,
   Avatar,
   Paper,
@@ -46,13 +46,11 @@ function PostDetails() {
   // Generating & formatting comments data ---------------------------------
   const listComments = Comments.map((comment, index) => (
     (comment.postId === post.id) ?
-      <ListItem sx={{
-        margin: '5px', width: '100%', borderBottom: 'solid 1px #d5d5d5'
-      }}>
+      <ListItem className='ListItem'>
         <Avatar src={comment.avatar}>
         </Avatar>
         <ListItemText
-          sx={{ margin: '0 20px' }}
+          className='ListItemText'
           key={index}
           primary={comment.User}
           secondary={comment.message}>
@@ -63,7 +61,7 @@ function PostDetails() {
   //------------------------------------------------------------------------
 
   return (
-    <Paper sx={{ padding: '30px', margin: '20px' }}>
+    <Paper className='Paper'>
 
       {/*---------------------- Page Tile ----------------------*/}
       <Typography variant='h1' gutterBottom sx={{
@@ -79,14 +77,14 @@ function PostDetails() {
         align="center">Post Details</Typography>
 
       {/*============================= Main container =============================*/}
-      <Grid container my={4} className='mainContainer'
-        direction="row" spacing={1}
-        divider={<Divider orientation='vertical' flexItem />}>
+      <Grid container my={2}
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-start">
 
         {/*---------------------- Post details component section ----------------------*/}
         <Grid item xs={9} className='Posts'>
           <Typography variant='h4' gutterBottom sx={{
-
             letterSpacing: {
               xs: 0, // 0
               sm: 0, // 600
@@ -103,19 +101,18 @@ function PostDetails() {
             {post.description}
           </Typography>
 
-          <TextareaAutosize id='userPost'
-            maxRows={4}
-            aria-label="Post comment"
-            placeholder="Give us your opinion on this post..."
-            defaultValue=""
-            style={{ margin: '50px 20px 15px', padding: '10px', width: '95%', height: '10vh', borderRadius: '5px' }}
-          />
+
 
           {/*---------------------- Add New Commments component section ----------------------*/}
-          <Stack spacing={2} direction='row'>
-
-            <IconButton color='primary' aria-label='send' onClick={AddComment}>
-              <SendIcon />
+          <Stack spacing={2} direction='row' className='sendButton'>
+            <TextareaAutosize id='userPost' className='CommentTextArea'
+              maxRows={4}
+              aria-label="Post comment"
+              placeholder="Give us your opinion on this post..."
+              defaultValue=""
+            />
+            <IconButton className='sendButton' aria-label='send' onClick={AddComment}>
+              <SendIcon className='sendButtonIcon' />
             </IconButton>
           </Stack>
 
@@ -135,7 +132,7 @@ function PostDetails() {
             fontSize: '3.2vh', fontWeight: 300
           }}
             align="center">Comments</Typography>
-          <Box sx={{ padding: '16px' }}>
+          <Box sx={{ padding: '0 16px' }}>
             <Grid container my={4} rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               direction="row"
               alignItems="center"

@@ -36,14 +36,6 @@ body {
   margin-right: 20px;
 }
 
-.Posts {
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid #dadce0;
-  color: #5f6368;
-  padding: 16px 16px;
-}
-
 .cardImg {
   transition: all .3s ease-in-out;
 }

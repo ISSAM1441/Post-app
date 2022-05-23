@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Posts.css';
 import {
   Box,
   Divider,
@@ -8,28 +9,30 @@ import {
 } from '@mui/material';
 
 import PostFilter from "./postfilters/PostFilter";
-import PostCards from "./postReview/PostCards";
 import { PostData } from './postReview/PostsData';
-import { Tags, authors } from './postfilters/FiltersData';
+import { PostItems } from './postReview/PostItems'
 
+/*
 export const PostItems = PostData;
 
 export function renderPostData(author, tag) {
-  const listItems = PostData.filter((post, index) =>
-    (post.author.includes(author)) ?
-      <PostCards key={index} post={post}></PostCards> : null
+  const filteredItems = []
+  PostData.map((post, index) => {
+    if (post.author.includes(author)) {
+      filteredItems.push(<PostCards key={index} post={post}></PostCards>)
+    }
+  }
   )
-
-  return listItems
+  listItems = filteredItems;
+  console.log(listItems)
+  return listItems;
 }
-
-const listItems = PostItems.map((post, index) => (
-  <PostCards key={index} post={post}></PostCards>))
+*/
 
 function PostsReview() {
 
   return (
-    <Paper sx={{ padding: '30px', margin: '20px' }}>
+    <Paper className='Paper'>
 
       {/*---------------------- Page Tile ----------------------*/}
       <Typography variant='h1' gutterBottom sx={{
@@ -45,9 +48,10 @@ function PostsReview() {
         align="center">Post Revew</Typography>
 
       {/*============================= Main container =============================*/}
-      <Grid container my={4} className='mainContainer'
-        direction="row" spacing={1}
-        divider={<Divider orientation='vertical' flexItem />}>
+      <Grid container my={2}
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-start">
 
         {/*---------------------- filter component section ----------------------*/}
         <Grid item xs={3}>
@@ -74,7 +78,7 @@ function PostsReview() {
               direction="row"
               alignItems="center"
             >
-              {listItems}
+              <PostItems data={PostData} author={'wd'} />
 
             </Grid>
           </Box>

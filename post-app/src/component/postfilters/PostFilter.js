@@ -12,8 +12,9 @@ import {
   Checkbox
 } from '@mui/material';
 
-import { renderPostData } from '../PostsReview';
+import { PostData } from '../postReview/PostsData';
 import { Tags, authors } from './FiltersData';
+import { PostItems } from '../postReview/PostItems'
 
 const ITEM_HEIGHT = 48;
 
@@ -27,15 +28,15 @@ const MenuProps = {
     },
   },
 };
-
-
 function PostFilter() {
 
   {/* ========================== on filter by Author handler ======================== */ }
   const [authorName, setAuthorName] = useState();
   const handleAuthorFilterChange = (event) => {
-    console.log(event.target.value, "local")
-    console.log(renderPostData(event.target.value, 0))
+    console.log(event.target.value, "local");
+    //console.log(PostItems(PostData, "emply"))
+    PostItems(PostData, event.target.value)
+    //console.log(renderPostData(event.target.value, 0))
     setAuthorName(event.target.value);
   };
 
