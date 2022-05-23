@@ -1,3 +1,6 @@
+import React, {useState} from 'react';
+import PostCards from "../postReview/PostCards";
+
 export const PostData = [{
     id: 1,
     title: "UK intel: Russia fired senior commanders who 'performed poorly'",
@@ -85,3 +88,19 @@ export const PostData = [{
     views: 200000,
     comments: 250,
   }];
+
+function PostsData() {
+
+    {/* ========================== Render Data ======================== */ }
+    const [PostsData, setPostItems] = useState(PostData);
+    /*const handlePostItemsChange = (event) => {
+      (event.target.value === 0) ?
+        setAuthorName(authors) :
+        setAuthorName(event.target.value);
+    };*/
+    const listItems = PostsData.map((post, index) => (
+      <PostCards key={index} post={post}></PostCards>))
+  return (
+    {listItems}
+  )
+}

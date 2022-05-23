@@ -28,32 +28,6 @@ const listItems = PostItems.map((post, index) => (
 
 function PostsReview() {
 
-  {/* ========================== Render Data ======================== */ }
-  const [postItems, setPostItems] = useState(PostData);
-  const handlePostItemsChange = (event) => {
-    (event.target.value === 0) ?
-      setAuthorName(authors) :
-      setAuthorName(event.target.value);
-  };
-
-  {/* ========================== on filter by Author handler ======================== */ }
-  const [filterByAuthor, setAuthorName] = useState(authors);
-  const handleAuthorFilterChange = (event) => {
-    (event.target.value === 0) ?
-      setAuthorName(authors) :
-      setAuthorName(event.target.value);
-  };
-
-  {/* ====================== on check filter by tags handler ====================== */ }
-  const [filterByTags, setTagName] = useState(Tags);
-  const handleTagFilterChange = (event) => {
-    const { target: { value }, } = event;
-    (value !== "" || null) ?
-      setTagName(
-        typeof value === 'string' ? value.split(',') : value,
-      ) : setTagName(Tags)
-  };
-
   return (
     <Paper sx={{ padding: '30px', margin: '20px' }}>
 
