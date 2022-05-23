@@ -1,38 +1,64 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&display=swap');
+
+@font-face {
+  font-family: 'Recoleta';
+  src: './shared/Recoleta-RegularDEMO.otf' format('otf');
+}
+h1 {
   text-align: center;
+  font-family: Recoleta,Georgia,"Times New Roman",Times,serif !important;
+  color: #1e8cbe;
+}
+body {
+  margin: 0 80px;
+  background-color: #f0f0f0;
+  padding: 0 80px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  /*background-color: white;
+  box-shadow: 5px 0px 5px darkgrey, -5px 0 5px darkgrey;*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mainContainer{
+  padding: 0 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.filter {
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  color: #5f6368;
+  padding: 16px 16px;
+  margin-right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.Posts {
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  color: #5f6368;
+  padding: 16px 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardImg {
+  transition: all .3s ease-in-out;
+}
+.cardImg:hover {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  scale: 1.05;
+}
+
+.center {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
