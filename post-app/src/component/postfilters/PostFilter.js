@@ -12,8 +12,8 @@ import {
   Checkbox
 } from '@mui/material';
 
-import {renderPostData} from '../PostsReview';
-import {Tags, authors} from './FiltersData';
+import { renderPostData } from '../PostsReview';
+import { Tags, authors } from './FiltersData';
 
 const ITEM_HEIGHT = 48;
 
@@ -52,6 +52,8 @@ function PostFilter() {
 
   return (
     <div className='filter'>
+
+      {/*---------------------- Component Tile ----------------------*/}
       <Typography variant='h4' gutterBottom sx={{
         fontFamily: 'Advent Pro',
         letterSpacing: {
@@ -70,6 +72,8 @@ function PostFilter() {
         padding={2}
         rowSpacing={6}
         divider={<Divider orientation='vertical' flexItem />}>
+
+        {/*------------------ Filter by user selector -----------------*/}
         < Grid item xs>
           <TextField label='Filter By user' select fullWidth
             value={authorName}
@@ -82,6 +86,7 @@ function PostFilter() {
 
         </Grid>
 
+        {/*---------------- Filter by tags Multi-selector ---------------*/}
         < Grid item xs={10}>
           <InputLabel fullWidth helperText='Fill free to choose  one or more Tags'>All Tags</InputLabel>
           <Select width='150px' fullWidth
@@ -102,6 +107,7 @@ function PostFilter() {
           </Select>
 
         </Grid>
+        
       </Grid>
     </div>
 

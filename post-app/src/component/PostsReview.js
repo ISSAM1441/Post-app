@@ -10,7 +10,7 @@ import {
 import PostFilter from "./postfilters/PostFilter";
 import PostCards from "./postReview/PostCards";
 import { PostData } from './postReview/PostsData';
-import {Tags, authors} from './postfilters/FiltersData';
+import { Tags, authors } from './postfilters/FiltersData';
 
 export const PostItems = PostData;
 
@@ -22,7 +22,6 @@ export function renderPostData(author, tag) {
 
   return listItems
 }
-
 
 const listItems = PostItems.map((post, index) => (
   <PostCards key={index} post={post}></PostCards>))
@@ -57,6 +56,8 @@ function PostsReview() {
 
   return (
     <Paper sx={{ padding: '30px', margin: '20px' }}>
+
+      {/*---------------------- Page Tile ----------------------*/}
       <Typography variant='h1' gutterBottom sx={{
         letterSpacing: {
           xs: 0, // 0
@@ -69,7 +70,7 @@ function PostsReview() {
       }}
         align="center">Post Revew</Typography>
 
-      {/*============================= Respensive container =============================*/}
+      {/*============================= Main container =============================*/}
       <Grid container my={4} className='mainContainer'
         direction="row" spacing={1}
         divider={<Divider orientation='vertical' flexItem />}>
