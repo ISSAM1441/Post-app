@@ -29,7 +29,7 @@ const MenuProps = {
   },
 };
 function PostFilter({ data }) {
-
+const tempData = []
   {/* ========================== on filter by Author handler ======================== */ }
   const [authorName, setAuthorName] = useState();
   const handleAuthorFilterChange = (event) => {
@@ -43,20 +43,37 @@ function PostFilter({ data }) {
         }
       })
       data.setData(newItems);
-      setAuthorName(event.target.value);
-    }
 
+    }
+    tempData = data.items
+    setAuthorName(event.target.value);
   };
 
   {/* ====================== on check filter by tags handler ====================== */ }
   const [tagName, setTagName] = useState([]);
   const handleTagFilterChange = (event) => {
+
     const {
       target: { value },
     } = event;
     setTagName(
       typeof value === 'string' ? value.split(',') : value,
     );
+
+    if (value.length > 0) {
+      const newItems = []
+      data.items.forEach((post) => {
+        value.forEach((element) => {
+          if (post.tag === element) {
+            newItems.push(post)
+          }
+        })
+      })
+      data.setData(newItems);
+    } else {
+      data.setData(data.PostData);
+    }
+
   };
 
   return (
