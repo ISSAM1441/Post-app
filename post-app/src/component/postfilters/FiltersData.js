@@ -14,6 +14,10 @@ export const Tags = [
   
   export const authors = [
     {
+      id: 0,
+      name: 'All'
+    },
+    {
       id: 1,
       name: 'Missy Ryan'
     },
@@ -42,3 +46,4 @@ export const Tags = [
       name: 'University of South Florida'
     }
   ];
+  

@@ -28,16 +28,24 @@ const MenuProps = {
     },
   },
 };
-function PostFilter() {
+function PostFilter({ data }) {
 
   {/* ========================== on filter by Author handler ======================== */ }
   const [authorName, setAuthorName] = useState();
   const handleAuthorFilterChange = (event) => {
-    console.log(event.target.value, "local");
-    //console.log(PostItems(PostData, "emply"))
-    PostItems(PostData, event.target.value)
-    //console.log(renderPostData(event.target.value, 0))
-    setAuthorName(event.target.value);
+    if (event.target.value === 'All') {
+      data.setData(data.PostData)
+    } else {
+      const newItems = []
+      data.PostData.forEach((post) => {
+        if (post.author.includes(event.target.value)) {
+          newItems.push(post)
+        }
+      })
+      data.setData(newItems);
+      setAuthorName(event.target.value);
+    }
+
   };
 
   {/* ====================== on check filter by tags handler ====================== */ }
@@ -108,7 +116,7 @@ function PostFilter() {
           </Select>
 
         </Grid>
-        
+
       </Grid>
     </div>
 

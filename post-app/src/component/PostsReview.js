@@ -30,6 +30,7 @@ export function renderPostData(author, tag) {
 */
 
 function PostsReview() {
+  const [items, setData] = useState(PostData)
 
   return (
     <Paper className='Paper'>
@@ -55,7 +56,7 @@ function PostsReview() {
 
         {/*---------------------- filter component section ----------------------*/}
         <Grid item xs={3}>
-          <PostFilter />
+          <PostFilter data={{PostData, items, setData}} />
 
         </Grid>
 
@@ -78,7 +79,7 @@ function PostsReview() {
               direction="row"
               alignItems="center"
             >
-              <PostItems data={PostData} author={'wd'} />
+              <PostItems data={{items, setData}} />
 
             </Grid>
           </Box>
