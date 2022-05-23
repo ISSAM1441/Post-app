@@ -7,7 +7,53 @@ import {
   Paper
 } from '@mui/material';
 
+import PostFilter from "./postfilters/PostFilter";
+import PostCards from "./postReview/PostCards";
+import { PostData } from './postReview/PostsData';
+import {Tags, authors} from './postfilters/FiltersData';
+
+export const PostItems = PostData;
+
+export function renderPostData(author, tag) {
+  const listItems = PostData.filter((post, index) =>
+    (post.author.includes(author)) ?
+      <PostCards key={index} post={post}></PostCards> : null
+  )
+
+  return listItems
+}
+
+
+const listItems = PostItems.map((post, index) => (
+  <PostCards key={index} post={post}></PostCards>))
+
 function PostsReview() {
+
+  {/* ========================== Render Data ======================== */ }
+  const [postItems, setPostItems] = useState(PostData);
+  const handlePostItemsChange = (event) => {
+    (event.target.value === 0) ?
+      setAuthorName(authors) :
+      setAuthorName(event.target.value);
+  };
+
+  {/* ========================== on filter by Author handler ======================== */ }
+  const [filterByAuthor, setAuthorName] = useState(authors);
+  const handleAuthorFilterChange = (event) => {
+    (event.target.value === 0) ?
+      setAuthorName(authors) :
+      setAuthorName(event.target.value);
+  };
+
+  {/* ====================== on check filter by tags handler ====================== */ }
+  const [filterByTags, setTagName] = useState(Tags);
+  const handleTagFilterChange = (event) => {
+    const { target: { value }, } = event;
+    (value !== "" || null) ?
+      setTagName(
+        typeof value === 'string' ? value.split(',') : value,
+      ) : setTagName(Tags)
+  };
 
   return (
     <Paper sx={{ padding: '30px', margin: '20px' }}>
@@ -30,6 +76,7 @@ function PostsReview() {
 
         {/*---------------------- filter component section ----------------------*/}
         <Grid item xs={3}>
+          <PostFilter />
 
         </Grid>
 
@@ -52,6 +99,7 @@ function PostsReview() {
               direction="row"
               alignItems="center"
             >
+              {listItems}
 
             </Grid>
           </Box>
